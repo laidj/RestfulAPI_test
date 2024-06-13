@@ -1,0 +1,74 @@
+//CMD
+    mysql -u root -p
+
+    CREATE DATABASE restfulapi
+
+    USE restfulapi
+
+    CREATE TABLE organizations (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    org_name VARCHAR(255) UNIQUE NOT NULL
+    );
+
+    CREATE TABLE relationships (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    parent_org_id INT,
+    child_org_id INT,
+    FOREIGN KEY (parent_org_id) REFERENCES organizations(id),
+    FOREIGN KEY (child_org_id) REFERENCES organizations(id)
+    );
+
+//dp.php
+    $username = 'teie_username';
+    $password = 'teie_parool';
+
+//terminal
+    php -S localhost:8000
+
+//browser
+    http://localhost:8000
+
+    //add_organizations
+    {
+        "org_name": "Paradise Island",
+        "daughters": [
+            {
+                "org_name": "Banana tree",
+                "daughters": [
+                    {
+                        "org_name": "Yellow Banana"
+                    },
+                    {
+                        "org_name": "Brown Banana"
+                    },
+                    {
+                        "org_name": "Black Banana"
+                    }
+                ]
+            },
+            {
+                "org_name": "Big banana tree",
+                "daughters": [
+                    {
+                        "org_name": "Yellow Banana"
+                    },
+                    {
+                        "org_name": "Brown Banana"
+                    },
+                    {
+                        "org_name": "Green Banana"
+                    },
+                    {
+                        "org_name": "Black Banana",
+                        "daughters": [
+                            {
+                                "org_name": "Phoneutria Spider"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+
+
