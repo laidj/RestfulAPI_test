@@ -1,8 +1,8 @@
 <?php
 $host = 'localhost';
 $dbname = 'restfulapi';
-$username = 'root'; // Your MySQL username
-$password = 'jakob'; // Your MySQL password
+$username = 'root';
+$password = 'jakob';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
